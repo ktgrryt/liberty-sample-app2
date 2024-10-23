@@ -63,7 +63,7 @@ public class PrefectureProcessor {
             try {
                 int pre_num = Integer.parseInt(numStr); // intに変換
                 if (pre_num < 1 || pre_num > name_list.size()) {
-                    return chosen_list; // エラーメッセージはサーブレット側で設定
+                    return chosen_list; 
                 } else {
                     Random rand = new Random();
                     for (int i = 0; i < pre_num; i++) {
@@ -74,7 +74,7 @@ public class PrefectureProcessor {
                     }
                 }
             } catch (NumberFormatException e) {
-                return chosen_list; // エラーメッセージはサーブレット側で設定
+                return chosen_list; 
             }
         }
         return chosen_list;
