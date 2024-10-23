@@ -13,6 +13,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/app2")
 public class PrefecturesServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.getRequestDispatcher("/PrefecturesServlet.jsp").forward(request, response);
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -89,15 +93,11 @@ public class PrefecturesServlet extends HttpServlet {
                         name_list.remove(RandomIndex);
                     }
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) { //このtryとcatchは不要？
                 request.setAttribute("errorMessage", "ERR");
             }
         }
         request.setAttribute("chosen_list", chosen_list);
         request.getRequestDispatcher("/disp.jsp").forward(request, response);
-    }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("/PrefecturesServlet.jsp").forward(request, response);
     }
 }
